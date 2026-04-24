@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calories Chart</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="./Part-5.css">
+
+    <style>
+        h1 { font-size: 26px; text-align: center; margin-top: 40px; margin-bottom: 20px; }
+        .panel-default>.panel-heading {
+            background: linear-gradient(135deg, #2340ff 1%, #7c21f5 100%);
+            color: #ffffff; padding: 18px;
+        }
+        .panel { box-shadow: 0px 0px 60px 0px rgba(0, 0, 0, .40); }
+        .panel-group .panel {
+            margin-bottom: 20px; border: 1px solid #2340ff;
+        }
+        .panel-title { font-size: 18px; }
+        .panel-title a, .panel-title a:hover, .panel-title a:focus {
+            text-decoration: none;
+        }
+        .panel-body p { font-size: 16px; }
+    </style>
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h1><strong>PROBATION ASSESSMENT REPORT</strong></h1><hr>
+		</div>
+		
+		<div class="col-md-12">
+			<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                <!-- pannel-1 -->
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="headingOne">
+						<h4 class="panel-title">
+						<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+						EMPLOYEE DETAILS
+						</a>
+						</h4>
+					</div>
+					<div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+						<div class="panel-body">
+							</table>
+						</div>
+					</div>
+				</div>
+				 <!-- pannel-2 -->
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="headingTwo">
+						<h4 class="panel-title">
+						<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+						ASSESSMENT BY REPORTING OFFICER
+						</a>
+						</h4>
+					</div>
+					<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+						<div class="panel-body">
+							</table>
+						</div>
+					</div>
+				</div>
+				 <!-- pannel-3 -->
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="headingThree">
+						<h4 class="panel-title">
+						<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+						REMARK OF THE REVIEWING OFFICER
+						</a>
+						</h4>
+					</div>
+					<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+						<div class="panel-body">
+							</table>
+						</div>
+					</div>
+				</div>
+				<!-- pannel-4 -->
+                <div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="headingOne">
+						<h4 class="panel-title">
+						<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+						HOD APPROVING
+						</a>
+						</h4>
+					</div>
+					<div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+						<div class="panel-body">
+							<body>
+								<form id="approvalForm" onsubmit="return validateForm()">
+									<!-- <h2 style="text-align: center; margin-bottom: 20px;">HOD APPROVING</h2> -->
+									<p style="text-align: center;">Counter signature of Head of Department along with observation, if any.</p>
+								
+									<div style="text-align: center;">
+										<textarea id="hodObservations" name="hodObservations" rows="4" required placeholder="Enter observations..."></textarea>
+									</div>
+									<div class="button-container">
+										<button type="submit">Forward</button>
+									</div>
+								</form>
+								<script src="Part-iv.js"></script>
+							</body>
+						</div>
+					</div>
+				</div>
+				 <!-- pannel-5 -->
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="headingFive">
+						<h4 class="panel-title">
+						<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+						DISCIPLINARY CELL APPROVING 
+						</a>
+						</h4>
+					</div>
+					<div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+						<form id="passportForm" onsubmit="return validateForm()">
+							<!-- <h2 style="text-align: center; margin-bottom: 20px;">DISIPLINARY CELL APPROVING</h2> -->
+							<table>
+								<tr>
+									<th>Field Name</th>
+									<th>Input Type</th>
+								</tr>
+								<tr>
+									<td>Passport Type</td>
+									<td>
+										<select id="passportType" name="passportType" required>
+											<option value="" disabled selected>Select</option>
+											<option value="new">New Passport</option>
+											<option value="renewal">Renewal of Passport</option>
+										</select>
+									</td>
+								</tr>
+								<tr>
+									<td>Name of Employee</td>
+									<td><input type="text" id="employeeName" name="employeeName" required></td>
+								</tr>
+								<tr>
+									<td>Personal No.</td>
+									<td><input type="text" id="personalNo" name="personalNo" required></td>
+								</tr>
+					
+								<tr>
+									<td>Under Suspension</td>
+									<td>
+										<div class="toggle-wrapper">
+											<span>No</span>
+											<div class="toggle-switch">
+												<input type="checkbox" id="suspensionToggle" onchange="toggleField('suspensionFields', this)">
+												<label for="suspensionToggle"></label>
+											</div>
+											<span>Yes</span>
+										</div>
+									</td>
+								</tr>
+								<tr data-field="suspensionFields" style="display: none;">
+									<td>Date of Suspension Order</td>
+									<td><input type="date" id="suspensionDate" name="suspensionDate"></td>
+								</tr>
+								<tr data-field="suspensionFields" style="display: none;">
+									<td>Reason for Suspension</td>
+									<td><textarea id="suspensionReason" name="suspensionReason" rows="3"></textarea></td>
+								</tr>
+								
+								<tr>
+									<td>Chargesheet Issued & Disciplinary Pending</td>
+									<td>
+										<div class="toggle-wrapper">
+											<span>No</span>
+											<div class="toggle-switch">
+												<input type="checkbox" id="chargesheetToggle" onchange="toggleField('chargesheetFields', this)">
+												<label for="chargesheetToggle"></label>
+											</div>
+											<span>Yes</span>
+										</div>
+									</td>
+								</tr>
+								<tr data-field="chargesheetFields" style="display: none;">
+									<td>Date of Chargesheet</td>
+									<td><input type="date" id="chargesheetDate" name="chargesheetDate"></td>
+								</tr>
+								<tr data-field="chargesheetFields" style="display: none;">
+									<td>Charges in Brief</td>
+									<td><textarea id="chargesheetDetails" name="chargesheetDetails" rows="3"></textarea></td>
+								</tr>
+					
+								<tr>
+									<td>Investigation Status</td>
+									<td>
+										<div class="toggle-wrapper">
+											<span>No</span>
+											<div class="toggle-switch">
+												<input type="checkbox" id="investigationToggle" onchange="toggleField('investigationFields', this)">
+												<label for="investigationToggle"></label>
+											</div>
+											<span>Yes</span>
+										</div>
+									</td>
+								</tr>
+								<tr data-field="investigationFields" style="display: none;">
+									<td>Brief Description of Charges</td>
+									<td><input type="text" id="chargesBrief" name="chargesBrief"></td>
+								</tr>
+					
+								<tr>
+									<td>Rules/Provisions</td>
+									<td><textarea id="rulesProvisions" name="rulesProvisions" rows="4"></textarea></td>
+								</tr>
+							</table>
+					
+							<div class="button-container">
+								<button type="submit">Forward</button>
+							</div>
+						</form>
+						
+						<script src="NALCO_FINAL.js"></script>
+					</div>
+				</div>
+				 <!-- pannel-6 -->
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="headingThree">
+						<h4 class="panel-title">
+						<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+						UNIT VIGILANCE CELL
+						</a>
+						</h4>
+					</div>
+					<div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+						<div class="panel-body">
+							</table>
+						</div>
+					</div>
+				</div>
+				<!-- pannel-7 -->
+                <div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="headingOne">
+						<h4 class="panel-title">
+						<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="true" aria-controls="collapseSeven">
+						CORPORATE VIGILANCE CELL
+						</a>
+						</h4>
+					</div>
+					<div id="collapseSeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+						<div class="panel-body">
+							</table>
+						</div>
+					</div>
+				</div>
+				 <!-- pannel-8 -->
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="headingTwo">
+						<h4 class="panel-title">
+						<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+						VIGILANCE HOD
+						</a>
+						</h4>
+					</div>
+					<div id="collapseEight" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingEight">
+						<div class="panel-body">
+							</table>
+						</div>
+					</div>
+				</div>
+				 <!-- pannel-9 -->
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="headingThree">
+						<h4 class="panel-title">
+						<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+						CVO
+						</a>
+						</h4>
+					</div>
+					<div id="collapseNine" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+						<div class="panel-body">
+							</table>
+						</div>
+					</div>
+				</div>
+				<!-- pannel-10 -->
+                <div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="headingThree">
+						<h4 class="panel-title">
+						<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
+						CORPORATE HRD DEPARTMENT
+						</a>
+						</h4>
+					</div>
+					<div id="collapseTen" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+						<div class="panel-body">
+								
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+	</div>
+</div>
+		
+</body>
+</html>
